@@ -10,7 +10,7 @@
 |---|---|
 | **Endpoint** | `https://fermat360.nl/mcp` (streamable HTTP) |
 | **Auth** | OAuth 2.1 with PKCE. Clients identify themselves with a Client ID Metadata Document; no API keys |
-| **Supported clients** | Claude (claude.ai, Desktop, mobile), Claude Code, ChatGPT (developer mode) |
+| **Supported clients** | Claude (claude.ai, Desktop, mobile), Claude Code, ChatGPT (developer mode), VS Code (GitHub Copilot) |
 | **Registry** | [`nl.fermat360/fermat-360`](https://registry.modelcontextprotocol.io/v0/servers?search=nl.fermat360%2Ffermat-360) in the official MCP registry |
 | **Documentation** (Dutch) | https://fermat360.nl/mcp-koppeling |
 | **Pricing** | €200 per user per month excl. VAT; the 48-hour free trial does not include the connector. https://fermat360.nl/#prijzen |
@@ -21,6 +21,7 @@
 - **Claude:** Settings → Connectors → Add custom connector, paste `https://fermat360.nl/mcp`, choose Connect and click "Toestaan" (Allow) in Fermat 360.
 - **Claude Code:** `claude mcp add --transport http fermat https://fermat360.nl/mcp`, then `/mcp` to sign in.
 - **ChatGPT:** turn on developer mode for apps, create an app with `https://fermat360.nl/mcp` and click "Toestaan" in Fermat 360.
+- **VS Code:** `code --add-mcp '{"name":"fermat","type":"http","url":"https://fermat360.nl/mcp"}'`. VS Code asks you to sign in the first time the server is used; click "Toestaan" in Fermat 360.
 
 You sign in once with your Fermat 360 account and approve the connection. You can disconnect at any time under Instellingen → AI-koppelingen.
 
