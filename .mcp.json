@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "fermat360": {
+      "type": "http",
+      "url": "https://fermat360.nl/mcp"
+    }
+  }
+}
