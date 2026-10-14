@@ -15,7 +15,7 @@
 | **Supported clients** | Claude (claude.ai, Desktop, mobile), Claude Code, ChatGPT (developer mode), VS Code (GitHub Copilot) |
 | **Registry** | [`nl.fermat360/fermat-360`](https://registry.modelcontextprotocol.io/v0/servers?search=nl.fermat360%2Ffermat-360) in the official MCP registry |
 | **Documentation** (Dutch) | https://fermat360.nl/mcp-koppeling |
-| **Pricing** | €200 per user per month excl. VAT; the one-week free trial does not include the connector. https://fermat360.nl/#prijzen |
+| **Pricing** | €100 per user per month excl. VAT; the one-week free trial does not include the connector. https://fermat360.nl/#prijzen |
 | **Privacy policy** | https://fermat360.nl/privacy |
 | **Terms** | https://fermat360.nl/gebruikersovereenkomst |
 | **llms.txt** | https://fermat360.nl/llms.txt |
@@ -32,7 +32,7 @@ You sign in once with your Fermat 360 account and approve the connection. You ca
 - `vraag_fermat`: ask a question of Dutch law, or a follow-up question in the same conversation (`gesprek_id`). Fermat 360 searches its corpus and returns an answer with numbered citations and links to the source documents. An answer can take up to a minute. Optional `niveau`: `basis` (the default) or `extra`, which is more thorough and counts 10 units.
 - `haal_antwoord`: fetch an answer that was still being prepared.
 
-Answers are in Dutch. Each question counts toward the user's monthly allowance of 10,000 units, the same counter as the chat in Fermat 360: a question on Basis counts 1 unit, on Extra 10. Through the connector the default is Basis. Each question also appears in the user's chat history in Fermat 360.
+Answers are in Dutch. Each question counts toward the user's monthly allowance of 3,000 units, the same counter as the chat in Fermat 360: a question on Basis counts 1 unit, on Extra 10. Through the connector the default is Basis. Each question also appears in the user's chat history in Fermat 360.
 
 ## Sources
 
@@ -49,6 +49,10 @@ More than 1.6 million documents: Dutch case law (about 965,000 judgments and 48,
 
 ## About this repository
 
-This is the public home of the hosted Fermat 360 MCP server: documentation and listing anchor only. The service itself is not developed in this repository.
+This is the public home of the hosted Fermat 360 MCP server: documentation, listing anchor and contract tests. The service itself is not developed in this repository and is not open source.
+
+The tests in [`tests/`](tests/) check what anyone can check without an account: the endpoint refuses unauthenticated calls and points to its OAuth metadata, the metadata matches what this README documents (PKCE with S256, Client ID Metadata Documents, no dynamic client registration), and this README, `.mcp.json` and the official MCP registry agree on the endpoint. They run on every change and weekly. Run them yourself with `python3 -m unittest discover tests` (Python 3, no dependencies).
+
+The contents of this repository are available under the [MIT License](LICENSE).
 
 Questions: fermat360@protonmail.com.
