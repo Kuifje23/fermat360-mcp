@@ -70,8 +70,14 @@ class EndpointTest(unittest.TestCase):
         self.assertTrue(challenge.startswith("Bearer "), challenge)
         match = re.search(r'resource_metadata="([^"]+)"', challenge)
         self.assertIsNotNone(match, challenge)
+        # Only follow the pointer to the issuer's own well-known path, never elsewhere.
+        metadata_url = match.group(1)
+        self.assertTrue(
+            metadata_url.startswith(f"{ISSUER}/.well-known/oauth-protected-resource"),
+            metadata_url,
+        )
 
-        metadata = fetch_json(match.group(1))
+        metadata = fetch_json(metadata_url)
         self.assertEqual(metadata["resource"], ENDPOINT)
         self.assertIn(ISSUER, metadata["authorization_servers"])
 
