@@ -1,5 +1,7 @@
 # Fermat 360 MCP server
 
+[![M8ven Score](https://m8ven.ai/badge/mcp/kuifje23-fermat360-mcp-g8xi2c?v=4457e37d00e29739914141db6a0e198a)](https://m8ven.ai/mcp/kuifje23-fermat360-mcp-g8xi2c?s=readme)
+
 **Answers to questions of Dutch law from Dutch case law, legislation and EU law, with numbered citations. For law firms.**
 
 [Fermat 360](https://fermat360.nl) is a legal research platform for Dutch law firms. Its remote MCP server lets Claude and ChatGPT put a legal question to Fermat 360 and get back an answer with numbered citations to the judgments and legislation it relies on.
